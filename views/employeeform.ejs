@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= employee ? 'Edit Employee' : 'Add Employee' %></title>
+</head>
+<body>
+    <!-- Page Heading -->
+    <h1><%= employee ? 'Edit Employee' : 'Add Employee' %></h1>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/add">Add Employee</a></li>
+        </ul>
+    </nav>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <!-- Form -->
+        <form action="<%= employee ? '/edit/' + employee.id : '/add' %>" method="POST" class="employee-form">
+            <div>
+                <label>Name:</label>
+                <input type="text" name="name" value="<%= employee ? employee.name : '' %>" required>
+            </div>
+            <div>
+                <label>Designation:</label>
+                <input type="text" name="designation" value="<%= employee ? employee.designation : '' %>" required>
+            </div>
+            <div>
+                <label>Location:</label>
+                <input type="text" name="location" value="<%= employee ? employee.location : '' %>" required>
+            </div>
+            <div>
+                <label>Salary:</label>
+                <input type="number" name="salary" value="<%= employee ? employee.salary : '' %>" required>
+            </div>
+            <button type="submit"><%= employee ? 'Update Employee' : 'Add Employee' %></button>
+        </form>
+    </div>
+</body>
+</html>
